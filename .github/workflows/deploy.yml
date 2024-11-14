@@ -34,7 +34,7 @@ jobs:
         run: npm run build
 
       - name: Upload `dist` folder to GitHub Pages artifact
-        uses: actions/upload-pages-artifact@v4  # Update to v4
+        uses: actions/upload-pages-artifact@v1  # Updated to v1
         with:
           path: ./dist  # Specify the folder to deploy (dist)
 
