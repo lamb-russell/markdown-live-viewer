@@ -1,19 +1,17 @@
 
 # Markdown Live Viewer
 
-Markdown Live Viewer is a web application that provides a live Markdown editor with real-time rendering and mindmap visualization. Type Markdown in the editor, and view the rendered Markdown as well as a mindmap structure based on the headings in the text.
+Markdown Live Viewer is a web application offering a live Markdown editor with real-time rendering and an interactive mindmap visualization. Designed for easy Markdown editing and content structuring, it enables users to create and visualize Markdown documents seamlessly.
 
-### Features
+## Features
 
-- **Live Markdown Rendering**: See rendered Markdown in real time as you type.
-- **Mindmap Visualization**: Visualize your Markdown structure as a mindmap, with scrollbars enabled for larger visualizations.
-- **Responsive Layout**: Editor on the top, rendered Markdown on the bottom left, and mindmap visualization on the bottom right.
+- **Live Markdown Rendering**: View your Markdown content as it’s typed.
+- **Mindmap Visualization**: Generate a mindmap structure from your document’s headings.
+- **Responsive Layout**: Organized for ease of use with Markdown editing, previewing, and mindmap generation on a single screen.
 
-### Demo
+## Demo
 
-You can try a live demo of this project at [https://lamb-russell.github.io/markdown-live-viewer/](https://lamb-russell.github.io/markdown-live-viewer/) (if deployed to GitHub Pages).
-
----
+Check out a live demo [here](https://lamb-russell.github.io/markdown-live-viewer/) 
 
 ## Table of Contents
 
@@ -24,11 +22,13 @@ You can try a live demo of this project at [https://lamb-russell.github.io/markd
 - [Deployment](#deployment)
 - [License](#license)
 
----
-
 ## Installation
 
-To run this project locally, you’ll need [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/) installed on your machine.
+### Requirements
+
+To run this app locally, ensure you have [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/) installed.
+
+### Steps
 
 1. Clone this repository:
 
@@ -48,8 +48,6 @@ To run this project locally, you’ll need [Node.js](https://nodejs.org/) and [n
    npm install
    ```
 
----
-
 ## Usage
 
 To start the development server:
@@ -58,48 +56,37 @@ To start the development server:
 npm start
 ```
 
-This will run the project on a local server, usually accessible at `http://localhost:3000`.
+The app will run locally, typically accessible at `http://localhost:3000`.
 
 ### Editing Markdown
 
-- Use the editor at the top to enter Markdown text.
-- The Markdown preview will appear on the bottom left.
-- The mindmap visualization of your Markdown headings will be displayed on the bottom right. Scrollbars are enabled for larger visualizations.
+- Use the editor to type Markdown text.
+- Real-time Markdown preview is shown below the editor.
+- A mindmap visualization of the Markdown structure appears to the right, with scrollbars for large visualizations.
 
 ### Building for Production
 
-To create a production-ready build:
+To create an optimized production build:
 
 ```bash
 npm run build
 ```
 
-This command generates an optimized build in the `dist` folder, which can be deployed to a static hosting service.
-
----
+The build will be located in the `dist` folder and is ready for deployment on any static hosting service.
 
 ## Deployment
 
-You can deploy this app to any static hosting service. Here’s how to deploy it to GitHub Pages.
-
 ### Deploying to GitHub Pages
 
-1. **Set the Base Path in `vite.config.js`**
-
-   Make sure the base path is set to the repository name for GitHub Pages to work correctly:
+1. **Configure `vite.config.js`**: Update the `base` path to match the repository name:
 
    ```javascript
-   // vite.config.js
-   import { defineConfig } from 'vite';
-
    export default defineConfig({
        base: '/markdown-live-viewer/',
    });
    ```
 
-2. **Build and Deploy**
-
-   To deploy the app manually to GitHub Pages:
+2. **Build and Deploy**:
 
    ```bash
    npm run build
@@ -107,9 +94,8 @@ You can deploy this app to any static hosting service. Here’s how to deploy it
    npm run deploy
    ```
 
-   This will build the project and push the contents of the `dist` folder to the `gh-pages` branch, which GitHub Pages will use to serve the app.
+This process will push the `dist` folder contents to the `gh-pages` branch for GitHub Pages hosting.
 
-3. **GitHub Actions (Optional)**
+3. **Automated Deployment (Optional)**
 
-   Alternatively, you can set up GitHub Actions to automatically build and deploy the app to GitHub Pages whenever you push to the main branch. See the `.github/workflows/deploy.yml` file for an example configuration.
-
+   You can configure GitHub Actions for automatic deployment on push events. Check `.github/workflows/deploy.yml` for an example setup.
