@@ -1,10 +1,16 @@
+// Import necessary modules from npm packages
+import { Transformer } from 'markmap-lib';
+import { Markmap } from 'markmap-view';
+import markdownit from 'markdown-it';
+import hljs from 'highlight.js';
+
 // Initialize markdown-it with highlight.js support
-const md = window.markdownit({
+const md = markdownit({
     highlight: function (str, lang) {
-        if (lang && window.hljs.getLanguage(lang)) {
+        if (lang && hljs.getLanguage(lang)) {
             try {
                 return '<pre class="hljs"><code>' +
-                       window.hljs.highlight(str, { language: lang }).value +
+                       hljs.highlight(str, { language: lang }).value +
                        '</code></pre>';
             } catch (__) {}
         }
@@ -25,13 +31,6 @@ function renderMarkdownToHTML(text) {
 
 // Function to render Markdown to Mindmap using markmap
 function renderMarkdownToMindmap(text) {
-    // Check if markmap libraries are available
-    if (!window.markmap || !window.markmap.Transformer || !window.markmap.Markmap) {
-        console.error("Markmap libraries are not loaded correctly.");
-        return;
-    }
-
-    const { Transformer, Markmap } = window.markmap;
     const transformer = new Transformer();
 
     // Transform Markdown text into mindmap data
@@ -43,7 +42,12 @@ function renderMarkdownToMindmap(text) {
     }
 
     // Initialize and render the mindmap
-    Markmap.create(mindmapOutput, {}, root);
+    Markmap.create(mindmapOutput, {
+        nodeFontSize: 18,      // Increase font size
+        spacingVertical: 30,   // Increase vertical spacing between nodes
+        spacingHorizontal: 60, // Increase horizontal spacing between nodes
+    }, root);
+    
 }
 
 // Event listener for live updating both HTML preview and Mindmap
